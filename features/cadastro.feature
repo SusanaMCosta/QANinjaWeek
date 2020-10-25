@@ -10,26 +10,22 @@ Cenario: Cadastro
     Dado que acesso a página de cadastro
     Quando submeto o meu cadastro com:
         |email|susanamoreira@gmail.com|
-        |senha|susana|
-        |senha_confirma|susana|
+        |senha|susana                 |
+        |senha_confirma|susana        |
     Então devo ser redirecionado para a área logada
 
-Cenario: Email não informado
+Esquema do Cenário: Tentativa de Cadastro
     Dado que acesso a página de cadastro
-    Quando submeto o meu cadastro sem o email
-    Então devo ver Oops! Informe seu email
+    Quando submeto o meu cadastro com:
+        |email         | <email>          | 
+        |senha         | <senha>          |
+        |senha_confirma| <senha_confirma> |
+    Então devo ver a mensagem: "<mensagem_saida>"
 
-Cenario: Senha não informada
-    Dado que acesso a página de cadastro
-    Quando submeto o meu cadastro sem a senha
-    Então devo ver Oops! Informe sua senha
+    Exemplos:
+    | email                   | senha  | confirma_senha | mensagem_saida                       |
+    |                         | susana | susana         | Oops! Informe seu email.             |
+    | susanamoreira@gmail.com |        |                | Oops! Informe sua senha.             |
+    | susanamoreira@gmail.com | susana | susana123      | Oops! Senhas não são iguais.         |
+    |                         |        |                | Oops! Informe seu email e sua senha. |
 
-Cenario: Senha divergente
-    Dado que acesso a página de cadastro
-    Quando submeto meu cadastro com senha divergente
-    Então devo ver Opps! Senhas não são iguais
-
-Cenario: Nenhum campo preenchido
-    Dado que acesso a página de cadastro
-    Quando submeto meu cadastro sem preencher os campos
-    Então devo ver Opps! Informe seu email e sua senha
