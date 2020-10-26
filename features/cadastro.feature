@@ -29,3 +29,9 @@ Funcionalidade: Cadastro de usuários
             | susanamoreira@gmail.com | susana | susana123      | Oops! Senhas não são iguais.         |
             |                         |        |                | Oops! Informe seu email e sua senha. |
 
+    @temp
+    Cenario: Validação do campo email
+
+        Quando acesso a página de cadastro
+        Então deve exibir o seguinte css "input[tupe=email]" deve estar na página
+
