@@ -1,11 +1,8 @@
 
 Dado("Login com {string} e {string}") do |email, password|
-    visit "/"
-    click_on "Login"
+    goto_login
 
-    find("#user_email").set email
-    find("#user_password").set password
-    click_on "Log in"
+    login_with(email, password)
 end
   
   
